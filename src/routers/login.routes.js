@@ -5,7 +5,7 @@ const { createLogin } = require('../schemas/validations');
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-  const { error, value } = createLogin.validate(req.body);
+  const { error } = createLogin.validate(req.body);
 
   if (error) {
     const errorMessage = error.details[0].message;
