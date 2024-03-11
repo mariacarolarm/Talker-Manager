@@ -4,6 +4,7 @@ const loginRouter = require('./routers/login.routes');
 const newTalker = require('./routers/newTalker.routes');
 const editTalker = require('./routers/editTalker.routes');
 const deleteTalker = require('./routers/deleteTalker.routes');
+const searchTalker = require('./routers/searchTalker.routes');
 
 const app = express();
 app.use(express.json());
@@ -11,6 +12,7 @@ app.use(express.json());
 const PORT = process.env.PORT || '3001';
 
 app.get('/talker', returnTalkers);
+app.use('/talker/search', searchTalker);
 
 app.get('/', (_request, response) => {
   response.status(200).send();
