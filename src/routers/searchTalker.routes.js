@@ -19,7 +19,6 @@ searchTalker.get('/', async (req, res) => {
 
     const matchingTalkers = talkers.filter((talker) =>
       talker.name.toLowerCase().includes(searchTerm.toLowerCase()));
-    if (matchingTalkers.length === 0) return res.status(200).json([]);
     res.status(200).json(matchingTalkers);
   } catch (error) {
     console.error('Error searching talkers: ', error);
